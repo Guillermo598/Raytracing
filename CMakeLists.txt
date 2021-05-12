@@ -20,5 +20,7 @@ add_executable(Raytracing
         Geometria/Caja.cpp Geometria/Caja.h
         LuzPunto.cpp LuzPunto.h
         Tracer.cpp Tracer.h
-        Material.cpp Material.h)
+        Materiales/Material.cpp Materiales/Material.h
+        Materiales/Matte.cpp Materiales/Matte.h
+        Materiales/Phong.cpp Materiales/Phong.h)
 

@@ -6,7 +6,7 @@
 class Objeto;
 
 #include "Geometria/Objeto.h"
-#include "Material.h"
+#include "Materiales/Material.h"
 #include "Camara.h"
 #include "PlanoVista.h"
 #include "CImg.h"
