@@ -14,6 +14,7 @@ public:
     Caja(double _xi, double _xf, double _yi, double _yf, double _zi, double _zf);
 
     virtual bool hit(const Rayo &rayo, double &tmin, ShadeRec &sr) const;
+    virtual bool hit_sombra(const Rayo &rayo, double &tmin) const;
 };
 
 

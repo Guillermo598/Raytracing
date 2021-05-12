@@ -36,6 +36,16 @@ public:
         return *this;
     }
 
+    double distancia(const Vector3D& p) const {
+        return (sqrt((x - p.x) * (x - p.x)
+                + 	 (y - p.y) * (y - p.y)
+                +	 (z - p.z) * (z - p.z) ));
+    }
+
+    Vector3D compMult(const Vector3D& c) const {
+        return Vector3D(x * c.x, y * c.y, z * c.z);
+    }
+
 };
 
 

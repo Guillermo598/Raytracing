@@ -14,7 +14,7 @@ public:
     Cilindro(Vector3D c, double h, double r);
 
     virtual bool hit(const Rayo &rayo, double &tmin, ShadeRec &sr) const;
-
+    virtual bool hit_sombra(const Rayo &rayo, double &tmin) const;
 };
 
 

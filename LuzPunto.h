@@ -12,8 +12,10 @@ public:
     Vector3D posicion;
 
     LuzPunto(Vector3D pos);
+    void set_color(Vector3D c);
     virtual Vector3D get_direccion(ShadeRec& sr);
     virtual Vector3D L(ShadeRec& sr);
+    virtual bool en_sombra(const Rayo& rayo, const ShadeRec& sr) const;
 };
 
 

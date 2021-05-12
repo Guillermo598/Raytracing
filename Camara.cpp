@@ -49,5 +49,5 @@ void Camara::renderizarEscena(Mundo m) {
     while (!dis_img.is_closed()) {
         dis_img.wait();
     }
-    m.pImg->save("render.bmp");
+    m.pImg->save("../render.bmp");
 }

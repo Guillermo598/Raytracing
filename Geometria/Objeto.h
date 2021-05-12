@@ -20,6 +20,7 @@ public:
     void setMaterial(Material* pMat);
 
     virtual bool hit(const Rayo &rayo, double &tmin, ShadeRec &sr) const =0;
+    virtual bool hit_sombra(const Rayo &rayo, double &tmin) const =0;
 };
 
 

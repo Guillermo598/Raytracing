@@ -31,27 +31,41 @@ void escena1(){
     auto pMatBlan = new Matte(0.25, 0.65, Vector3D(1, 1, 1));
 
     auto pPhongRojo = new Phong(0.25, 0.6, 0.2, 5, Vector3D(1, 0, 0));
+    auto pPhongAzul = new Phong(0.25, 0.6, 0.2, 5, Vector3D(0, 0, 1));
+    auto pPhongVerde = new Phong(0.25, 0.6, 0.2, 5, Vector3D(0, 1, 0));
+    auto pPhongBlan = new Phong(0.25, 0.6, 0.2, 5, Vector3D(1, 1, 1));
 
-    auto pCilindroP = new Cilindro(Vector3D(20, -20, 0), 50, 15);
-    pCilindroP->setMaterial(pPhongRojo);
+    auto pEsfera1 = new Esfera(Vector3D(0, 20, 0), 15);
+    pEsfera1->setMaterial(pPhongBlan);
 
     auto pPlano = new Plano(Vector3D(0, -20, 0), Vector3D(0, 1, 0));
-    pPlano->setMaterial(pMatBlan);
+    pPlano->setMaterial(pPhongBlan);
 
-    auto pCilindroM = new Cilindro(Vector3D(-20, -20, 0), 50, 15);
-    pCilindroM->setMaterial(pMatRojo);
+    //auto pEsfera2 = new Esfera(Vector3D(-20, 20, 0), 15);
+    //pEsfera2->setMaterial(pPhongAzul);
 
-    auto pLuz1 = new LuzPunto(Vector3D(0, 0, 100));
-    auto pLuz2 = new LuzPunto(Vector3D(0, 100, 0));
+    auto pLuz1 = new LuzPunto(Vector3D(0, 100, 25));
+    auto pLuz2 = new LuzPunto(Vector3D(-25, 100, -25));
+    auto pLuz3 = new LuzPunto(Vector3D(25, 100, -25));
+    pLuz1->set_color(Vector3D(1,0,0));
+    pLuz2->set_color(Vector3D(0,1,0));
+    pLuz3->set_color(Vector3D(0,0,1));
+    pLuz1->sombras = true;
+    pLuz2->sombras = true;
+    pLuz3->sombras = true;
     m.addLuz(pLuz1);
     m.addLuz(pLuz2);
+    m.addLuz(pLuz3);
 
-    //m.addObjeto(pPlano);
-    m.addObjeto(pCilindroM);
-    m.addObjeto(pCilindroP);
+    auto pLuz = new LuzPunto(Vector3D(0, 400, 400));
+    m.addLuz(pLuz);
+
+    m.addObjeto(pPlano);
+    m.addObjeto(pEsfera1);
+    //m.addObjeto(pEsfera2);
 
     auto pCamara = new Camara();
-    pCamara->setEye(0, 100, 400);
+    pCamara->setEye(0, 300, 300);
     pCamara->setLookat(0, 0, 0);
     pCamara->calcularUVW();
     m.pCamara = pCamara;

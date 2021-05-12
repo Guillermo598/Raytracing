@@ -13,7 +13,7 @@ public:
     Plano(Vector3D p, Vector3D n);
 
     virtual bool hit(const Rayo& rayo, double& tmin, ShadeRec& sr) const;
-
+    virtual bool hit_sombra(const Rayo &rayo, double &tmin) const;
 };
 
 
