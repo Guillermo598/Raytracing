@@ -9,4 +9,5 @@ PlanoVista::PlanoVista() : ojo(0,0,200) {
     invGamma = 1.0;
     zoom = 1.0;
     dist = 100;
+    maxProfundidade = 5;
 }

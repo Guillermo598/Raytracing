@@ -7,6 +7,7 @@
 #include "Geometria/Caja.h"
 #include "Materiales/Matte.h"
 #include "Materiales/Phong.h"
+#include "Materiales/Transparent.h"
 
 void escena1();
 void escena2();
@@ -87,32 +88,58 @@ void escena2(){
     m.pv.setTamPixel(0.5);
     m.pTracer = new Tracer(&m);
 
+    auto vidrio = new Transparent();
+    vidrio->ks = 0.5;
+    vidrio->exp = 2000;
+    vidrio->ior = 1.1;
+    vidrio->kr = 0.1;
+    vidrio->kt = 0.9;
+
     auto pPhongRojo = new Phong(0.25, 0.6, 0.2, 5, Vector3D(1, 0, 0));
+    auto pPhongAmar = new Phong(0.25, 0.6, 0.2, 5, Vector3D(1, 1, 0));
     auto pPhongAzul = new Phong(0.25, 0.6, 0.2, 5, Vector3D(0, 0, 1));
     auto pPhongVerde = new Phong(0.25, 0.6, 0.2, 5, Vector3D(0, 1, 0));
     auto pPhongBlan = new Phong(0.25, 0.6, 0.2, 5, Vector3D(1, 1, 1));
 
     auto frasco = new Cilindro(Vector3D(0, 0, 0), 40, 20);
-    frasco->setMaterial(pPhongRojo);
+    frasco->setMaterial(vidrio);
 
     auto piso = new Plano(Vector3D(0, 0, 0), Vector3D(0, 1, 0));
     piso->setMaterial(pPhongBlan);
 
     for (int i = 0; i < 3; ++i) {
-        auto ffly = new LuzPunto(Vector3D((rand()%20) - 10, rand()%40, (rand()%20) - 10));
-        ffly->set_color(Vector3D(1,1,0));
-        m.addLuz(ffly);
+        auto ffly = new Esfera(Vector3D((rand()%20) - 10, (rand()%30) + 5, (rand()%20) - 10), 2);
+        //ffly->set_color(Vector3D(1,1,0));
+        ffly->setMaterial(pPhongAmar);
+        m.addObjeto(ffly);
     }
 
+    auto esf = new Esfera(Vector3D(0, 20, 0), 20);
+    esf->setMaterial(vidrio);
+
+    auto esf2 = new Esfera(Vector3D(18, 20, -100), 20);
+    esf2->setMaterial(pPhongRojo);
+
+    auto luz = new LuzPunto(Vector3D(0, 20, 0));
+    m.addLuz(luz);
+
+    auto luz2 = new LuzPunto(Vector3D(0, 100, 0));
+    m.addLuz(luz2);
+
     auto pLuz = new LuzPunto(Vector3D(0, 400, 400));
+    pLuz->sombras = false;
     m.addLuz(pLuz);
 
     m.addObjeto(piso);
-    m.addObjeto(frasco);
+    //m.addObjeto(frasco);
+    m.addObjeto(esf);
+    m.addObjeto(esf2);
 
     auto pCamara = new Camara();
-    pCamara->setEye(0, 100, 400);
-    pCamara->setLookat(0, 0, -50);
+    pCamara->setEye(0, 20, 400);
+    //pCamara->setEye(400, 100, 0);
+    pCamara->setLookat(0, 20, -50);
+    //pCamara->setLookat(-50, 0, 0);
     pCamara->calcularUVW();
     m.pCamara = pCamara;
 

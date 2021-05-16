@@ -7,10 +7,10 @@
 class Matte : public Material{
 public:
     double kd, ka;
-    Vector3D cd, ca;
+    Vector3D c;
 
-    Matte() : ka(0), kd(0), cd(Vector3D(0,0,0)), ca(Vector3D(0,0,0)) {};
-    Matte(double ka, double kd, const Vector3D& c) : ka(ka), kd(kd), cd(c), ca(c) {};
+    Matte() : ka(0), kd(0), c(Vector3D(0,0,0)) {};
+    Matte(double ka, double kd, const Vector3D& c) : ka(ka), kd(kd), c(c) {};
 
     Vector3D shade(ShadeRec& sr);
 };
