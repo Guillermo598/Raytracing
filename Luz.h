@@ -8,7 +8,7 @@ class ShadeRec;
 
 class Luz {
 public:
-    bool sombras;
+    bool sombras = true;
 
     virtual Vector3D get_direccion(ShadeRec& sr) = 0;
     virtual Vector3D L(ShadeRec& sr) = 0;

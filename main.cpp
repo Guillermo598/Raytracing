@@ -9,11 +9,13 @@
 #include "Materiales/Phong.h"
 
 void escena1();
+void escena2();
 
 int main() {
-    escena1();
+    escena2();
     return 0;
 }
+
 void escena1(){
     Mundo m;
 
@@ -67,6 +69,50 @@ void escena1(){
     auto pCamara = new Camara();
     pCamara->setEye(0, 300, 300);
     pCamara->setLookat(0, 0, 0);
+    pCamara->calcularUVW();
+    m.pCamara = pCamara;
+
+    m.pCamara->renderizarEscena(m);
+
+}
+
+void escena2(){
+    Mundo m;
+
+    m.pv.ojo.set(0, 0, 400);
+    m.pv.dist = 100;
+
+    m.pv.setHres(230);
+    m.pv.setVres(230);
+    m.pv.setTamPixel(0.5);
+    m.pTracer = new Tracer(&m);
+
+    auto pPhongRojo = new Phong(0.25, 0.6, 0.2, 5, Vector3D(1, 0, 0));
+    auto pPhongAzul = new Phong(0.25, 0.6, 0.2, 5, Vector3D(0, 0, 1));
+    auto pPhongVerde = new Phong(0.25, 0.6, 0.2, 5, Vector3D(0, 1, 0));
+    auto pPhongBlan = new Phong(0.25, 0.6, 0.2, 5, Vector3D(1, 1, 1));
+
+    auto frasco = new Cilindro(Vector3D(0, 0, 0), 40, 20);
+    frasco->setMaterial(pPhongRojo);
+
+    auto piso = new Plano(Vector3D(0, 0, 0), Vector3D(0, 1, 0));
+    piso->setMaterial(pPhongBlan);
+
+    for (int i = 0; i < 3; ++i) {
+        auto ffly = new LuzPunto(Vector3D((rand()%20) - 10, rand()%40, (rand()%20) - 10));
+        ffly->set_color(Vector3D(1,1,0));
+        m.addLuz(ffly);
+    }
+
+    auto pLuz = new LuzPunto(Vector3D(0, 400, 400));
+    m.addLuz(pLuz);
+
+    m.addObjeto(piso);
+    m.addObjeto(frasco);
+
+    auto pCamara = new Camara();
+    pCamara->setEye(0, 100, 400);
+    pCamara->setLookat(0, 0, -50);
     pCamara->calcularUVW();
     m.pCamara = pCamara;
 
