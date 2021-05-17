@@ -73,7 +73,7 @@ void escena1(){
     pCamara->calcularUVW();
     m.pCamara = pCamara;
 
-    m.pCamara->renderizarEscena(m);
+    m.pCamara->renderizarEscena(m, 1);
 
 }
 
@@ -91,9 +91,10 @@ void escena2(){
     auto vidrio = new Transparent();
     vidrio->ks = 0.5;
     vidrio->exp = 2000;
-    vidrio->ior = 1.1;
-    vidrio->kr = 0.1;
+    vidrio->ior = 1.5;
+    vidrio->kr = 0.5;
     vidrio->kt = 0.9;
+    vidrio->c = Vector3D(1,1,1);
 
     auto pPhongRojo = new Phong(0.25, 0.6, 0.2, 5, Vector3D(1, 0, 0));
     auto pPhongAmar = new Phong(0.25, 0.6, 0.2, 5, Vector3D(1, 1, 0));
@@ -109,7 +110,6 @@ void escena2(){
 
     for (int i = 0; i < 3; ++i) {
         auto ffly = new Esfera(Vector3D((rand()%20) - 10, (rand()%30) + 5, (rand()%20) - 10), 2);
-        //ffly->set_color(Vector3D(1,1,0));
         ffly->setMaterial(pPhongAmar);
         m.addObjeto(ffly);
     }
@@ -131,18 +131,22 @@ void escena2(){
     m.addLuz(pLuz);
 
     m.addObjeto(piso);
-    //m.addObjeto(frasco);
-    m.addObjeto(esf);
+    m.addObjeto(frasco);
     m.addObjeto(esf2);
 
     auto pCamara = new Camara();
-    pCamara->setEye(0, 20, 400);
-    //pCamara->setEye(400, 100, 0);
+    pCamara->setEye(0, 100, 400);
     pCamara->setLookat(0, 20, -50);
-    //pCamara->setLookat(-50, 0, 0);
     pCamara->calcularUVW();
     m.pCamara = pCamara;
 
-    m.pCamara->renderizarEscena(m);
+    m.pCamara->renderizarEscena(m, 0);
+    for (int i = 1; i < 5; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            m.objetos[j]->move(Vector3D(0, 0.5 * (rand()%2?1:-1), 0));
+        }
+        m.pCamara->renderizarEscena(m, i);
+    }
+
 
 }

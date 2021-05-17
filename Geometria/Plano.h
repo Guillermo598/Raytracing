@@ -14,6 +14,7 @@ public:
 
     virtual bool hit(const Rayo& rayo, double& tmin, ShadeRec& sr) const;
     virtual bool hit_sombra(const Rayo &rayo, double &tmin) const;
+    virtual void move(const Vector3D& v);
 };
 
 

@@ -27,3 +27,7 @@ bool Plano::hit_sombra(const Rayo &rayo, double &tmin) const {
     }
     return false;
 }
+
+void Plano::move(const Vector3D &v) {
+    punto = punto + v;
+}

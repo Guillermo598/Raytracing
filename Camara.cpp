@@ -1,3 +1,5 @@
+#include <string>
+#include <iostream>
 #include "Camara.h"
 #include "PlanoVista.h"
 #include "ShadeRec.h"
@@ -19,7 +21,7 @@ Vector3D Camara::getDireccion(Vector3D p) {
     return dir;
 }
 
-void Camara::renderizarEscena(Mundo m) {
+void Camara::renderizarEscena(Mundo m, int i) {
     PlanoVista	pv(m.pv);
     Rayo rayo;
     Vector3D pp;
@@ -30,7 +32,7 @@ void Camara::renderizarEscena(Mundo m) {
 
     m.pImg = new CImg<BYTE>(pv.hres, pv.vres, 1, 3);
     CImgDisplay dis_img((*m.pImg), "", 3, false, true);
-
+    std::cout << "Rendering frame " << i << "...\n";
     int r, c, p = 0, q = 0;
     for (r = 0; r < pv.vres; r++) {
         for (c = 0; c < pv.hres; c++) {
@@ -49,5 +51,6 @@ void Camara::renderizarEscena(Mundo m) {
     while (!dis_img.is_closed()) {
         dis_img.wait();
     }
-    m.pImg->save("../render.bmp");
+    auto s = "../Renders/render" + std::to_string(i) + ".bmp";
+    m.pImg->save(s.c_str());
 }

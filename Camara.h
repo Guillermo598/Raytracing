@@ -14,7 +14,7 @@ public:
 
     void calcularUVW();
 
-    void renderizarEscena(Mundo m);
+    void renderizarEscena(Mundo m, int i);
     Vector3D getDireccion(Vector3D p);
 
     void setEye(double x, double y, double z) { ojo.set(x, y, z); }

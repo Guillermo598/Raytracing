@@ -70,3 +70,7 @@ bool Esfera::hit_sombra(const Rayo &rayo, double &tmin) const {
 
     return false;
 }
+
+void Esfera::move(const Vector3D &v) {
+    centro = centro + v;
+}

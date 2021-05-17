@@ -22,5 +22,6 @@ add_executable(Raytracing
         Tracer.cpp Tracer.h
         Materiales/Material.cpp Materiales/Material.h
         Materiales/Matte.cpp Materiales/Matte.h
-        Materiales/Phong.cpp Materiales/Phong.h Materiales/Transparent.cpp Materiales/Transparent.h)
+        Materiales/Phong.cpp Materiales/Phong.h
+        Materiales/Transparent.cpp Materiales/Transparent.h)
 

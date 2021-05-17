@@ -34,3 +34,7 @@ bool Caja::hit(const Rayo &rayo, double &tmin, ShadeRec &sr) const {
 bool Caja::hit_sombra(const Rayo &rayo, double &tmin) const {
     return false;
 }
+
+void Caja::move(const Vector3D &v) {
+
+}
