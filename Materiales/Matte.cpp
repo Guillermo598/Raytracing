@@ -1,7 +1,7 @@
 #include "Matte.h"
 
 Vector3D Matte::shade(ShadeRec &sr) {
-    Vector3D wo = sr.rayo.d * (-1);
+    Vector3D wo = -sr.rayo.d;
     Vector3D temp = c * ka;
     Vector3D L = Vector3D(temp.x * 1,temp.y * 1,temp.z * 1); // luz ambiente default
 

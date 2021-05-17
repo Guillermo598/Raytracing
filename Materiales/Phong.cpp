@@ -16,7 +16,7 @@ Phong::Phong(double ka, double kd, double ks, double e, Vector3D c) :
 
 
 Vector3D Phong::shade(ShadeRec &sr) {
-    Vector3D wo = sr.rayo.d * (-1);
+    Vector3D wo = -sr.rayo.d;
     Vector3D temp = c * ka;
     Vector3D L = temp.compMult(Vector3D(1,1,1)); // luz ambiente default
 
