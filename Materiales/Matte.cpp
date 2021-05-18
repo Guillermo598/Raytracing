@@ -9,7 +9,7 @@ Vector3D Matte::shade(ShadeRec &sr) {
         Vector3D wi = luz->get_direccion(sr);
         double nwi = sr.normal * wi;
         if (nwi > 0.0)
-            L = L + (((c * kd * 0.3183098861837906715) * luz->L(sr)) * nwi);
+            L = L + (((c * kd * 0.3183098861837906715).compMult(luz->L(sr))) * nwi);
     }
     return L;
 }

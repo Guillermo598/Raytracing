@@ -4,6 +4,7 @@
 #include <vector>
 
 class Objeto;
+class LuzEsfera;
 
 #include "Geometria/Objeto.h"
 #include "Materiales/Material.h"
@@ -13,6 +14,7 @@ class Objeto;
 #include "Luz.h"
 #include "Tracer.h"
 #include "LuzPunto.h"
+
 
 using namespace cimg_library;
 typedef unsigned char BYTE;
@@ -38,6 +40,8 @@ public:
     void addObjeto(Objeto* pObjeto) { objetos.push_back(pObjeto); }
 
     void addLuz(Luz* pLuz) { luces.push_back(pLuz); }
+
+    void addLuzEsfera(LuzEsfera* pLuzEsfera);
 
     void mostrarPixel(int fil, int col, Vector3D &pixel_color);
 

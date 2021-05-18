@@ -24,5 +24,5 @@ add_executable(Raytracing
         Materiales/Matte.cpp Materiales/Matte.h
         Materiales/Phong.cpp Materiales/Phong.h
         Materiales/Transparent.cpp Materiales/Transparent.h
-        Materiales/Emisor.cpp Materiales/Emisor.h)
+        Materiales/Emisor.cpp Materiales/Emisor.h LuzEsfera.cpp LuzEsfera.h Geometria/Disco.cpp Geometria/Disco.h)
 

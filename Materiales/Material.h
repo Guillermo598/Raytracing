@@ -9,7 +9,8 @@ class ShadeRec;
 
 class Material {
 public:
-    virtual Vector3D shade(ShadeRec& sr) { return Vector3D(0,0,0); }
+    virtual Vector3D shade(ShadeRec& sr) { return Vector3D(); }
+    virtual Vector3D get_Le(ShadeRec& sr) const { return Vector3D(); }
 };
 
 

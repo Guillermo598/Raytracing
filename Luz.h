@@ -12,6 +12,8 @@ public:
 
     virtual Vector3D get_direccion(ShadeRec& sr) = 0;
     virtual Vector3D L(ShadeRec& sr) = 0;
+    virtual double G(ShadeRec& sr) { return 1.0; }
+    virtual double pdf(ShadeRec& sr) { return 1.0; }
     virtual bool en_sombra(const Rayo& rayo, const ShadeRec& sr) const = 0;
 };
 

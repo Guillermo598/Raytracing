@@ -3,15 +3,18 @@
 
 
 #include "Material.h"
+#include "../Geometria/Esfera.h"
 
 class Emisor : public Material{
 public:
     double ls;
     Vector3D c;
+    Esfera* pEsfera;
+    LuzPunto* pLuz;
 
-    void escalar_rad(const double _ls);
+    Emisor(Vector3D color, double _ls, Esfera* esfera, LuzPunto* luz);
     virtual Vector3D shade(ShadeRec& sr);
-    //virtual Vector3D area_light_shade(ShadeRec& sr);
+    virtual Vector3D get_Le(ShadeRec& sr) const;
 };
 
 

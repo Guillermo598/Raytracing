@@ -1,5 +1,7 @@
 #include "Mundo.h"
 
+#include "LuzEsfera.h"
+
 void Mundo::mostrarPixel(int fil, int col, Vector3D &raw_color) {
     Vector3D mapped_color;
     mapped_color = max_to_one(raw_color);
@@ -57,4 +59,10 @@ ShadeRec Mundo::hitObjetos(const Rayo &rayo) {
     }
 
     return sr;
+}
+
+void Mundo::addLuzEsfera(LuzEsfera *pLuzEsfera) {
+    addObjeto(pLuzEsfera->pEsfera);
+    addLuz(pLuzEsfera->pLuz);
+    //for (auto& luz : pLuzEsfera->luces) addLuz(luz);
 }

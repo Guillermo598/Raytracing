@@ -5,7 +5,7 @@ Phong::Phong() :
     kd(0),
     ks(0),
     exp(0),
-    c(Vector3D(0, 0, 0)) {}
+    c(Vector3D()) {}
 
 Phong::Phong(double ka, double kd, double ks, double e, Vector3D c) :
     ka(ka),
@@ -33,9 +33,11 @@ Vector3D Phong::shade(ShadeRec &sr) {
                 Vector3D r(wi * (-1) + sr.normal * 2.0 * nwi);
                 double rwo = r * wo;
                 if (rwo > 0.0)
-                    L = L + ((c * kd * 0.3183098861837906715) + (c * ks * pow(rwo, exp))).compMult(luz->L(sr)) * nwi;
+                    L = L + ((c * kd * 0.3183098861837906715) + (c * ks * pow(rwo, exp))).compMult(luz->L(sr))
+                            * luz->G(sr) * nwi / luz->pdf(sr);
                 else
-                    L = L + (c * kd * 0.3183098861837906715).compMult(luz->L(sr)) * nwi;
+                    L = L + (c * kd * 0.3183098861837906715).compMult(luz->L(sr))
+                            * luz->G(sr) * nwi / luz->pdf(sr);
             }
         }
     }
