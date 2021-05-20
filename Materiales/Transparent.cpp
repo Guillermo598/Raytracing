@@ -45,5 +45,5 @@ Vector3D Transparent::specular_f(const ShadeRec &sr, const Vector3D &wo, Vector3
 Vector3D Transparent::reflective_f(const ShadeRec &sr, const Vector3D &wo, Vector3D &wi) const {
     double nwo = sr.normal * wo;
     wi = (-wo + sr.normal * nwo * 2);
-    return (c * kr / (sr.normal * wi));
+    return (cr * kr / (sr.normal * wi));
 }

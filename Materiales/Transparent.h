@@ -6,7 +6,7 @@
 class Transparent : public Phong {
 public:
     double kr, kt, ior;
-    Vector3D c;
+    Vector3D cr = Vector3D();
 
     virtual Vector3D shade(ShadeRec& sr);
 
