@@ -5,8 +5,8 @@
 
 
 #include "LuzPunto.h"
-#include "Materiales/Phong.h"
-#include "Geometria/Esfera.h"
+#include "../Geometria/Esfera.h"
+#include "../Materiales/Reflective.h"
 
 class LuzEsfera {
 public:

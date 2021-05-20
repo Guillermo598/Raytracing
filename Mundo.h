@@ -9,11 +9,11 @@ class LuzEsfera;
 #include "Geometria/Objeto.h"
 #include "Materiales/Material.h"
 #include "Camara.h"
-#include "PlanoVista.h"
+#include "Utils/PlanoVista.h"
 #include "CImg.h"
-#include "Luz.h"
-#include "Tracer.h"
-#include "LuzPunto.h"
+#include "Luces/Luz.h"
+#include "Utils/Tracer.h"
+#include "Luces/LuzPunto.h"
 
 
 using namespace cimg_library;

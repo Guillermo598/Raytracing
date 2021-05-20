@@ -2,8 +2,8 @@
 #define UNTITLED_PLANO_H
 
 #include "Objeto.h"
-#include "../Vector3D.h"
-#include "../Rayo.h"
+#include "../Utils/Vector3D.h"
+#include "../Utils/Rayo.h"
 
 class Plano : public Objeto{
 public:

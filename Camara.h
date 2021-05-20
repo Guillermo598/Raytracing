@@ -1,7 +1,8 @@
 #ifndef UNTITLED_CAMARA_H
 #define UNTITLED_CAMARA_H
 
-#include "Vector3D.h"
+#include "Utils/Vector3D.h"
+#include <string>
 
 class Mundo;
 
@@ -14,7 +15,7 @@ public:
 
     void calcularUVW();
 
-    void renderizarEscena(Mundo m, int i);
+    void renderizarEscena(Mundo m, const std::string& path, int i);
     Vector3D getDireccion(Vector3D p);
 
     void setEye(double x, double y, double z) { ojo.set(x, y, z); }

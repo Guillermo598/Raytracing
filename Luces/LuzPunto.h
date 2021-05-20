@@ -2,8 +2,8 @@
 #define UNTITLED_LUZPUNTO_H
 
 #include "Luz.h"
-#include "ShadeRec.h"
-#include "Vector3D.h"
+#include "../Utils/ShadeRec.h"
+#include "../Utils/Vector3D.h"
 
 class LuzPunto : public Luz{
 public:

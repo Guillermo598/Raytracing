@@ -3,14 +3,13 @@
 
 class ShadeRec;
 
-#include "../Vector3D.h"
-#include "../ShadeRec.h"
+#include "../Utils/Vector3D.h"
+#include "../Utils/ShadeRec.h"
 #include "../Mundo.h"
 
 class Material {
 public:
     virtual Vector3D shade(ShadeRec& sr) { return Vector3D(); }
-    virtual Vector3D get_Le(ShadeRec& sr) const { return Vector3D(); }
 };
 
 

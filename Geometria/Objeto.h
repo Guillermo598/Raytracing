@@ -1,9 +1,9 @@
 #ifndef UNTITLED_OBJETO_H
 #define UNTITLED_OBJETO_H
 
-#include "../Vector3D.h"
-#include "../Rayo.h"
-#include "../ShadeRec.h"
+#include "../Utils/Vector3D.h"
+#include "../Utils/Rayo.h"
+#include "../Utils/ShadeRec.h"
 
 class Material;
 

@@ -1,6 +1,6 @@
 #include "Mundo.h"
 
-#include "LuzEsfera.h"
+#include "Luces/LuzEsfera.h"
 
 void Mundo::mostrarPixel(int fil, int col, Vector3D &raw_color) {
     Vector3D mapped_color;

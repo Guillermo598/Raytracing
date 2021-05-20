@@ -1,8 +1,8 @@
 #include <string>
 #include <iostream>
 #include "Camara.h"
-#include "PlanoVista.h"
-#include "ShadeRec.h"
+#include "Utils/PlanoVista.h"
+#include "Utils/ShadeRec.h"
 
 void Camara::calcularUVW() {
     w = ojo - lookat;
@@ -21,7 +21,7 @@ Vector3D Camara::getDireccion(Vector3D p) {
     return dir;
 }
 
-void Camara::renderizarEscena(Mundo m, int i) {
+void Camara::renderizarEscena(Mundo m, const std::string& path,  int i) {
     PlanoVista	pv(m.pv);
     Rayo rayo;
     Vector3D pp;
@@ -51,6 +51,6 @@ void Camara::renderizarEscena(Mundo m, int i) {
     while (!dis_img.is_closed()) {
         dis_img.wait();
     }
-    auto s = "../Renders/render" + std::to_string(i) + ".bmp";
+    auto s = path + "render" + std::to_string(i) + ".bmp";
     m.pImg->save(s.c_str());
 }

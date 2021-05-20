@@ -33,11 +33,9 @@ Vector3D Phong::shade(ShadeRec &sr) {
                 Vector3D r(wi * (-1) + sr.normal * 2.0 * nwi);
                 double rwo = r * wo;
                 if (rwo > 0.0)
-                    L = L + ((c * kd * 0.3183098861837906715) + (c * ks * pow(rwo, exp))).compMult(luz->L(sr))
-                            * luz->G(sr) * nwi / luz->pdf(sr);
+                    L = L + ((c * kd * 0.3183098861837906715) + (c * ks * pow(rwo, exp))).compMult(luz->L(sr)) * nwi;
                 else
-                    L = L + (c * kd * 0.3183098861837906715).compMult(luz->L(sr))
-                            * luz->G(sr) * nwi / luz->pdf(sr);
+                    L = L + (c * kd * 0.3183098861837906715).compMult(luz->L(sr)) * nwi;
             }
         }
     }

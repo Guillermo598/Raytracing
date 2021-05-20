@@ -3,7 +3,17 @@
 
 LuzEsfera::LuzEsfera(const Vector3D& centro, double radio, const Vector3D& color) {
     pEsfera = new Esfera(centro, radio);
-    pEsfera->setMaterial(new Phong(0.25, 0.6, 0.2, 5, color));
+
+    auto mirror = new Reflective();
+    mirror->ka = 0.25;
+    mirror->kd = 0.5;
+    mirror->c = Vector3D(color);
+    mirror->ks = 0.15;
+    mirror->exp = 100;
+    mirror->kr = 0.75;
+    mirror->cr = Vector3D(1,1,1);
+
+    pEsfera->setMaterial(mirror);
     for (int i = -1; i < 2; ++i) {
         for (int j = -1; j < 2; ++j) {
             for (int k = -1; k < 2; ++k) {

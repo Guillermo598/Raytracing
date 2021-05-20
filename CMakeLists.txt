@@ -8,21 +8,23 @@ add_executable(Raytracing
         CImg.h
         Mundo.cpp Mundo.h
         Camara.cpp Camara.h
-        Vector3D.cpp Vector3D.h
+        Utils/Vector3D.cpp Utils/Vector3D.h
         Geometria/Objeto.cpp Geometria/Objeto.h
         Geometria/Esfera.cpp Geometria/Esfera.h
-        Rayo.cpp Rayo.h
-        ShadeRec.cpp ShadeRec.h
-        PlanoVista.cpp PlanoVista.h
-        Luz.cpp Luz.h
+        Utils/Rayo.cpp Utils/Rayo.h
+        Utils/ShadeRec.cpp Utils/ShadeRec.h
+        Utils/PlanoVista.cpp Utils/PlanoVista.h
+        Luces/Luz.cpp Luces/Luz.h
         Geometria/Plano.cpp Geometria/Plano.h
         Geometria/Cilindro.cpp Geometria/Cilindro.h
         Geometria/Caja.cpp Geometria/Caja.h
-        LuzPunto.cpp LuzPunto.h
-        Tracer.cpp Tracer.h
+        Luces/LuzPunto.cpp Luces/LuzPunto.h
+        Utils/Tracer.cpp Utils/Tracer.h
         Materiales/Material.cpp Materiales/Material.h
         Materiales/Matte.cpp Materiales/Matte.h
         Materiales/Phong.cpp Materiales/Phong.h
         Materiales/Transparent.cpp Materiales/Transparent.h
-        Materiales/Emisor.cpp Materiales/Emisor.h LuzEsfera.cpp LuzEsfera.h Geometria/Disco.cpp Geometria/Disco.h)
+        Luces/LuzEsfera.cpp Luces/LuzEsfera.h
+        Geometria/Disco.cpp Geometria/Disco.h
+        Materiales/Reflective.cpp Materiales/Reflective.h)
 

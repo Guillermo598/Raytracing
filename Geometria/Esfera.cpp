@@ -1,5 +1,5 @@
 #include "Esfera.h"
-#include "../ShadeRec.h"
+#include "../Utils/ShadeRec.h"
 
 bool Esfera::hit(const Rayo &rayo, double &tmin, ShadeRec &sr) const {
     double kEpsilon = 0.005;

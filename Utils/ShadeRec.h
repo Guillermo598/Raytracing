@@ -6,7 +6,7 @@ class Material;
 
 #include "Vector3D.h"
 #include "Rayo.h"
-#include "Materiales/Material.h"
+#include "../Materiales/Material.h"
 
 class ShadeRec {
 public:

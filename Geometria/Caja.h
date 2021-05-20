@@ -2,8 +2,8 @@
 #define UNTITLED_CAJA_H
 
 #include "Objeto.h"
-#include "../Vector3D.h"
-#include "../Rayo.h"
+#include "../Utils/Vector3D.h"
+#include "../Utils/Rayo.h"
 
 class Caja : public Objeto {
 public:
