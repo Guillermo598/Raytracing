@@ -5,12 +5,12 @@
 
 
 #include "LuzPunto.h"
-#include "Materiales/Transparent.h"
+#include "Materiales/Phong.h"
 #include "Geometria/Esfera.h"
 
 class LuzEsfera {
 public:
-    LuzPunto* pLuz;
+    std::vector<LuzPunto*> luces;
     Esfera* pEsfera;
 
     LuzEsfera(const Vector3D& centro, double radio, const Vector3D& color);

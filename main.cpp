@@ -30,49 +30,42 @@ void escena2(){
     m.pTracer = new Tracer(&m);
 
     auto vidrio = new Transparent();
-    vidrio->ks = 0.7;
-    vidrio->exp = 2000;
-    vidrio->ior = 1.25;
-    vidrio->kr = 0.3;
-    vidrio->kt = 0.95;
+    vidrio->ks = 0.5;
+    vidrio->exp = 70;
+    vidrio->ior = 1.56;
+    vidrio->kr = 0.1;
+    vidrio->kt = 0.9;
 
-    auto pPhongBlan = new Phong(0.25, 0.6, 0.2, 5, Vector3D(1, 1, 1));
-    auto pPhongNegr = new Phong(0.25, 0.6, 0.2, 5, Vector3D(0, 0, 0));
+    auto pMatteBlan = new Matte(0.9, 0.05, Vector3D(0.1, 0.1, 0.1));
+    auto pPhongGris = new Phong(0.25, 0.6, 2, 5,  Vector3D(0.8, 0.8, 0.8));
+
 
     // Frasco cilindrico
     auto frasco = new Cilindro(Vector3D(0, 0, 0), 40, 20);
     frasco->setMaterial(vidrio);
     auto frasco_base = new Disco(Vector3D(0, 0.1, 0), Vector3D(0, 1, 0), 20);
     frasco_base->setMaterial(vidrio);
-    auto frasco_top = new Disco(Vector3D(0, 40, 0), Vector3D(0, 1, 0), 20);
-    frasco_top->setMaterial(vidrio);
+    auto frasco_tapa = new Disco(Vector3D(0, 41, 0), Vector3D(0, 1, 0), 21);
+    frasco_tapa->setMaterial(pPhongGris);
+    auto frasco_tapa_c = new Cilindro(Vector3D(0, 35, 0), 6, 21);
+    frasco_tapa_c->setMaterial(pPhongGris);
     m.addObjeto(frasco);
     m.addObjeto(frasco_base);
-    m.addObjeto(frasco_top);
+    m.addObjeto(frasco_tapa);
+    m.addObjeto(frasco_tapa_c);
 
     auto piso = new Plano(Vector3D(0, 0, 0), Vector3D(0, 1, 0));
-    piso->setMaterial(pPhongBlan);
+    piso->setMaterial(pMatteBlan);
     m.addObjeto(piso);
 
     srand(time(nullptr));
     std::vector<LuzEsfera*> fflys;
-    for (int i = 0; i < 8; ++i) {
+    for (int i = 0; i < 5; ++i) {
         Vector3D rpos((rand()%20) - 10, (rand()%30) + 5, (rand()%20) - 10);
         auto ffly = new LuzEsfera(rpos, 1, Vector3D(1,1,0));
         fflys.push_back(ffly);
         m.addLuzEsfera(ffly);
     }
-
-    auto luz2 = new LuzPunto(Vector3D(0, 100, 0));
-    luz2->sombras = false;
-    m.addLuz(luz2);
-
-    auto pLuz = new LuzPunto(Vector3D(0, 400, 400));
-    pLuz->sombras = false;
-    m.addLuz(pLuz);
-
-
-
 
     auto pCamara = new Camara();
     pCamara->setEye(0, 75, 300);

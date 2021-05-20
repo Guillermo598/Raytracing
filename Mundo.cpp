@@ -63,6 +63,5 @@ ShadeRec Mundo::hitObjetos(const Rayo &rayo) {
 
 void Mundo::addLuzEsfera(LuzEsfera *pLuzEsfera) {
     addObjeto(pLuzEsfera->pEsfera);
-    addLuz(pLuzEsfera->pLuz);
-    //for (auto& luz : pLuzEsfera->luces) addLuz(luz);
+    for (auto& luz : pLuzEsfera->luces) addLuz(luz);
 }
