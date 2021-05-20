@@ -1,3 +1,3 @@
 # Raytracing
 
-![Render](render.bmp)
+![Render](render0.bmp)
